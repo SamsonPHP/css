@@ -5,6 +5,7 @@
  */
 namespace samsonphp\css;
 
+use samsonphp\event\Event;
 use samsonphp\resource\exception\ResourceNotFound;
 use samsonphp\resource\ResourceValidator;
 
@@ -19,6 +20,12 @@ class CSS
 {
     /** Pattern for matching CSS url */
     const P_URL = '/url\s*\(\s*(\'|\")?([^\)\s\'\"]+)(\'|\")?\s*\)/i';
+
+    /** Event for firing before handling CSS resource */
+    const E_BEFORE_HANDLER = 'samsonphp.css.before_handle';
+
+    /** Event for firing after handling CSS resource */
+    const E_AFTER_HANDLER = 'samsonphp.css.after_handle';
 
     /** @var string Path to current resource file */
     protected $currentResource;
@@ -35,8 +42,14 @@ class CSS
         if ($extension === 'css') {
             $this->currentResource = $resource;
 
+            // Fire event
+            Event::fire(self::E_BEFORE_HANDLER, [&$content, $resource]);
+
             // Rewrite Urls
             $content = preg_replace_callback(self::P_URL, [$this, 'rewriteUrls'], $content);
+
+            // Fire event
+            Event::fire(self::E_AFTER_HANDLER, [&$content, $resource]);
         }
     }
 
