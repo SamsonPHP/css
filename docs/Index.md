@@ -6,12 +6,12 @@ CSS resources paths rewriting.
 
 Module automatically rewrites CSS ```url(path/to/resource)``` from *module resource relative path*
  to *project root relative path*. For example we have next module structure:
- - src/MyModule/
- + - www/
-   + - background.jpeg
-   + - list/
-     + - bullet.png
-     + - index.css
+ + src/MyModule/
+ + www/
+   + background.jpeg
+   + list/
+     + bullet.png
+     + index.css
 
 And contents of ```src/MyModule/www/list/index.css```:
 ```css
