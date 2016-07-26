@@ -5,9 +5,11 @@
  */
 namespace samsonphp\css;
 
+use samson\core\ExternalModule;
 use samsonphp\event\Event;
 use samsonphp\resource\exception\ResourceNotFound;
 use samsonphp\resource\ResourceValidator;
+use samsonphp\resource\Router;
 
 /**
  * CSS assets handling class
@@ -16,8 +18,11 @@ use samsonphp\resource\ResourceValidator;
  * @package samsonphp\resource
  * TODO: Remove ResourceValidator as it is unnecessary
  */
-class CSS
+class CSS extends ExternalModule
 {
+    /** @var string Module identifer */
+    protected $id = 'resource_css';
+
     /** Pattern for matching CSS url */
     const P_URL = '/url\s*\(\s*(\'|\")?([^\)\s\'\"]+)(\'|\")?\s*\)/i';
 
@@ -29,6 +34,15 @@ class CSS
 
     /** @var string Path to current resource file */
     protected $currentResource;
+
+    /** Module preparation stage handler */
+    public function prepare(array $params = [])
+    {
+        // Subscribe for CSS handling
+        Event::subscribe(Router::E_RESOURCE_COMPILE, [$this, 'compile']);
+
+        return parent::prepare($params);
+    }
 
     /**
      * LESS resource compiler.

@@ -6,8 +6,14 @@
 namespace samsonphp\css\tests;
 
 use PHPUnit\Framework\TestCase;
+use samson\core\Core;
+use samsonframework\resource\ResourceMap;
 use samsonphp\css\CSS;
 use samsonphp\resource\ResourceValidator;
+
+// Include framework constants
+require('vendor/samsonos/php_core/src/constants.php');
+require('vendor/samsonos/php_core/src/Utils2.php');
 
 class CssTest extends TestCase
 {
@@ -18,7 +24,13 @@ class CssTest extends TestCase
 
     public function setUp()
     {
-        $this->css = new CSS();
+        $this->css = new CSS(
+            __DIR__,
+            $this->createMock(ResourceMap::class),
+            $this->createMock(Core::class)
+        );
+
+        $this->css->prepare();
 
         ResourceValidator::$projectRoot = __DIR__ . '/';
         ResourceValidator::$webRoot = __DIR__ . '/www/';
