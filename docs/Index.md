@@ -32,3 +32,8 @@ After rewriting of this CSS rules we will get following changes:
 
 As you can see also special controller is prepended to resource path: ```/resourcer/?p=``` where ```p``` GET parameter
 corresponds to *project root resource relative path*.
+
+## Events
+List of events that are fired within this module:
+ * ```E_BEFORE_HANDLER``` - Fires before CSS resource was processed
+ * ```E_AFTER_HANDLER``` - Fires after CSS resource was processed

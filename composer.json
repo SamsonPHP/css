@@ -12,7 +12,8 @@
     }
   ],
   "require": {
-    "samsonphp/resource": "1.*"
+    "samsonphp/resource": "1.*",
+    "samsonphp/event": "1.*"
   },
   "require-dev": {
     "phpunit/phpunit": "5.*"
