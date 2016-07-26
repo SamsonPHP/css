@@ -68,11 +68,8 @@ class CSS
 
         // Ignore inline resources
         if (strpos($url, 'data/') === false && strpos($url, 'data:') === false) {
-            // Remove possible GET parameters from resource path
-            $url = $this->getOnlyUrl($url, '?');
-
-            // Remove possible HASH parameters from resource path
-            $url = $this->getOnlyUrl($url, '#');
+            // Remove possible GET, HASH parameters from resource path
+            $url = $this->getOnlyUrl($this->getOnlyUrl($url, '#'), '?');
 
             // Try to find resource and output full error
             try {
