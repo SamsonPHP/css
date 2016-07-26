@@ -40,5 +40,5 @@ corresponds to *project root resource relative path*.
 
 ## Events
 List of events that are fired within this module:
- * ```E_BEFORE_HANDLER``` - Fires before CSS resource was processed
- * ```E_AFTER_HANDLER``` - Fires after CSS resource was processed
+ * ```\samsonphp\css\CSS::E_BEFORE_HANDLER``` - Fires before CSS resource was processed
+ * ```\samsonphp\css\CSS::E_AFTER_HANDLER``` - Fires after CSS resource was processed
