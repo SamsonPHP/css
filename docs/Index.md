@@ -39,6 +39,7 @@ As you can see also special controller is prepended to resource path: ```/resour
 corresponds to *project root resource relative path*.
 
 ## Events
-List of events that are fired within this module:
+This module supports [SamsonPHP/event](https://github.com/samsonphp/event) eventing model for module
+interoperation and this is a list of events that are fired within this module:
  * ```\samsonphp\css\CSS::E_BEFORE_HANDLER``` - Fires before CSS resource was processed
  * ```\samsonphp\css\CSS::E_AFTER_HANDLER``` - Fires after CSS resource was processed
