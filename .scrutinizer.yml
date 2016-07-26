@@ -18,3 +18,9 @@ build:
         php:
             version: 5.6
 
+    tests:
+        override:
+            - phpunit # <- running with 5.6
+            - phpenv global 7.0.8 && phpenv rehash
+            - phpunit # <- running with 7.0
+
