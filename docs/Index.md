@@ -1,6 +1,11 @@
 #SamsonPHP CSS resource management module
-This module automatically rewrites CSS ```url(path/to/resource)``` from module resource relative path
- to project root relative path. For example we have next module structure
+
+## Module logic
+Module hooks to (SamsonPHP/resource)[https://github.com/samsonphp/resource] resource compling event and performs
+CSS resources paths rewriting.
+
+Module automatically rewrites CSS ```url(path/to/resource)``` from *module resource relative path*
+ to *project root relative path*. For example we have next module structure:
  - src/MyModule/
  + - www/
    + - background.jpeg
