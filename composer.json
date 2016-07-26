@@ -1,0 +1,35 @@
+{
+  "name": "samsonphp/css",
+  "description": "SamsonPHP CSS resources management module",
+  "keywords": [
+    "resource",
+    "CSS"
+  ],
+  "authors": [
+    {
+      "name": "Vitaly Iegorov",
+      "email": "egorov@samsonos.com"
+    }
+  ],
+  "require": {
+    "samsonphp/resource": "1.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.*"
+  },
+  "license": "Open Software License (OSL) v 3.0",
+  "homepage": "http://samsonos.com/",
+  "autoload": {
+    "classmap": [
+      "src/"
+    ],
+    "psr-4": {
+      "samsonphp\\css\\": "src/"
+    }
+  },
+  "config": {
+    "github-protocols": [
+      "https"
+    ]
+  }
+}
