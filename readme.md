@@ -8,10 +8,10 @@ SamsonPHP CSS resource management module.
 [![Build Status](https://scrutinizer-ci.com/g/SamsonPHP/css/badges/build.png?b=master)](https://scrutinizer-ci.com/g/SamsonPHP/css/build-status/master)
 [![Code Coverage](https://scrutinizer-ci.com/g/SamsonPHP/css/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/SamsonPHP/css/?branch=master)
 [![Code Climate](https://codeclimate.com/github/SamsonPHP/css/badges/gpa.svg)](https://codeclimate.com/github/SamsonPHP/css)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SamsonPHP/css/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SamsonPHP/css/?branch=master) 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SamsonPHP/css/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SamsonPHP/css/?branch=master)
 [![Total Downloads](https://poser.pugx.org/SamsonPHP/css/downloads.svg)](https://packagist.org/packages/SamsonPHP/css)
 [![Stories in Ready](https://badge.waffle.io/SamsonPHP/css.png?label=ready&title=Ready)](https://waffle.io/SamsonPHP/css)
- 
+
 ##Documentation
 Follow [official documentation](http://github.com/SamsonPHP/css/blob/master/docs/Index.md).
  

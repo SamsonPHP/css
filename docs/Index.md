@@ -1,7 +1,7 @@
 #SamsonPHP CSS resource management module
 
 ## Module logic
-Module hooks to (SamsonPHP/resource)[https://github.com/samsonphp/resource] resource compling event and performs
+Module hooks to [SamsonPHP/resource](https://github.com/samsonphp/resource)
 CSS resources paths rewriting.
 
 Module automatically rewrites CSS ```url(path/to/resource)``` from *module resource relative path*
