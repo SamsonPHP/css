@@ -13,6 +13,7 @@ use samsonphp\resource\ResourceValidator;
  *
  * @author Vitaly Iegorov <egorov@samsonos.com>
  * @package samsonphp\resource
+ * TODO: Remove ResourceValidator as it is unnecessary
  */
 class CSS
 {
