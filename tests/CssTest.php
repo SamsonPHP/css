@@ -78,6 +78,24 @@ class CssTest extends TestCase
         $this->assertEquals('.class { url("data/jpeg;base64,kdFSDfsdjfnskdnfksdnfksdf"); }', $css);
     }
 
+    public function testCompileWithDataHttp()
+    {
+        $css = '.class { url("http://google.com/fonts/calibre"); }';
+
+        $this->css->compile('test.css', 'css', $css);
+
+        $this->assertEquals('.class { url("http://google.com/fonts/calibre"); }', $css);
+    }
+
+    public function testCompileWithDataHttps()
+    {
+        $css = '.class { url("https://google.com/fonts/calibre"); }';
+
+        $this->css->compile('test.css', 'css', $css);
+
+        $this->assertEquals('.class { url("https://google.com/fonts/calibre"); }', $css);
+    }
+
     public function testCompileWithResourceNotFound()
     {
         $this->setExpectedException(\samsonphp\resource\exception\ResourceNotFound::class);

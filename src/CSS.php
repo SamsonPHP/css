@@ -80,8 +80,13 @@ class CSS extends ExternalModule
         // Store static resource path
         $url = $matches[2];
 
+        // Validate url for restricted protocols and inline images
+        $validation  = array_filter(['data/', 'data:', 'http:', 'https:'], function ($item) use ($url) {
+            return strpos($url, $item) !== false;
+        });
+
         // Ignore inline resources
-        if (strpos($url, 'data/') === false && strpos($url, 'data:') === false) {
+        if (!count($validation)) {
             // Remove possible GET, HASH parameters from resource path
             $url = $this->getOnlyUrl($this->getOnlyUrl($url, '#'), '?');
 
