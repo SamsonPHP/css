@@ -53,7 +53,7 @@ class CSS extends ExternalModule
      */
     public function compile($resource, $extension, &$content)
     {
-        if ($extension === 'css') {
+        if (in_array($extension, [ResourceManager::T_CSS, ResourceManager::T_LESS, ResourceManager::T_SASS, ResourceManager::T_SCSS])) {
             $this->currentResource = $resource;
 
             // Fire event
