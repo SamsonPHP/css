@@ -10,6 +10,7 @@ use samsonphp\event\Event;
 use samsonphp\resource\exception\ResourceNotFound;
 use samsonphp\resource\ResourceValidator;
 use samsonphp\resource\Router;
+use samsonphp\resource\ResourceManager;
 
 /**
  * CSS assets handling class
