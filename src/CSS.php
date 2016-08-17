@@ -41,6 +41,8 @@ class CSS extends ExternalModule
     {
         // Subscribe for CSS handling
         Event::subscribe(Router::E_RESOURCE_COMPILE, [$this, 'compile']);
+        
+        Event::subscribe(Compressor::E_RESOURCE_COMPRESS, [$this, 'deCompile']);
 
         return parent::prepare($params);
     }
@@ -65,6 +67,31 @@ class CSS extends ExternalModule
 
             // Fire event
             Event::fire(self::E_AFTER_HANDLER, [&$content, $resource]);
+        }
+    }
+    
+    public function deCompile($extension, &$content)
+    {
+        if (in_array($extension, [ResourceManager::T_CSS, ResourceManager::T_LESS, ResourceManager::T_SASS, ResourceManager::T_SCSS])) {
+            if (preg_match_all('/url\s*\(\s*(\'|\")*(?<url>[^\'\"\)]+)\s*(\'|\")*\)/i', $content, $matches)) {
+                if (isset($matches['url'])) {
+                    foreach ($matches['url'] as $url) {
+                        if (preg_match('/' . STATIC_RESOURCE_HANDLER . '\/\?p=(((\/src\/|\/vendor\/samson[^\/]+\/)(?<module>[^\/]+)(?<path>.+))|((?<local>.+)))/ui', $url, $matches)) {
+                            if (array_key_exists('local', $matches)) {
+                                $module = 'local';
+                                $path = $matches['local'];
+                            } else {
+                                $module = $matches['module'];
+                                $path = $matches['path'];
+                            }
+                            // Always remove first public path /www/
+                            $path = ltrim(str_replace(__SAMSON_PUBLIC_PATH, '', $path), '/');
+                            // Replace url in file
+                            $content = str_replace($url, url()->base() . ($module == 'local' ? '' : $module . '/www/') . $path, $content);
+                        }
+                    }
+                }
+            }
         }
     }
 
