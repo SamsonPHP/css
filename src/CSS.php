@@ -6,6 +6,7 @@
 namespace samsonphp\css;
 
 use samson\core\ExternalModule;
+use samsonphp\compressor\Compressor;
 use samsonphp\event\Event;
 use samsonphp\resource\exception\ResourceNotFound;
 use samsonphp\resource\ResourceValidator;
